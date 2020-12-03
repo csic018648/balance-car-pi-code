@@ -1,5 +1,4 @@
 @lxpanel --profile LXDE-pi
 @pcmanfm --desktop --profile LXDE-pi
 @xscreensaver -no-splash
-@lxterminal -e python3 /home/pi/PIDbalance.pyc
-@/home/pi/Desktop/自平衡車校正工具
+@lxterminal -e python3 /home/pi/PIDbalance.py
