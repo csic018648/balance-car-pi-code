@@ -124,10 +124,10 @@ def main():
     ki = 0
     kd = 0
 
-    Lmin = 4    #M1
-    Rmin = 4    #M2
-    LminR = 4    #M1
-    RminR = 4    #M2
+    Lmin = 0    #M1
+    Rmin = 0    #M2
+    LminR = 0    #M1
+    RminR = 0    #M2
     
     lastError = 0.000000000000
     lastError_1 = 0.000000000000
@@ -175,11 +175,11 @@ def main():
             print("Angle:" + repr(head_gyro.get_angle()) + " gyro:" +  repr(head_gyro.get_gyro())+ " offset angle:" + str(PID) + "offseterror:" + str(offseterror) + "\n")
             
             if PID > 0:
-              board.motor_movement([board.M1], board.CCW, Lmin + abs(PID))    # DC motor 1 movement, orientation clockwise
-              board.motor_movement([board.M2], board.CW, Rmin + abs(PID))   # DC motor 2 movement, orientation count-clockwise
+              board.motor_movement([board.M1], board.CCW, Rmin + abs(PID))    # DC motor 1 movement, orientation clockwise
+              board.motor_movement([board.M2], board.CW, Lmin + abs(PID))   # DC motor 2 movement, orientation count-clockwise
             else:
-              board.motor_movement([board.M1], board.CW, LminR + abs(PID))    # DC motor 1 movement, orientation clockwise
-              board.motor_movement([board.M2], board.CCW, RminR + abs(PID))   # DC motor 2 movement, orientation count-clockwise
+              board.motor_movement([board.M1], board.CW, RminR + abs(PID))    # DC motor 1 movement, orientation clockwise
+              board.motor_movement([board.M2], board.CCW, LminR + abs(PID))   # DC motor 2 movement, orientation count-clockwise
             
             lastError_2 = lastError_1
             lastError_1 = error
